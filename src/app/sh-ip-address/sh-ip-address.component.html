@@ -1,0 +1,22 @@
+<div class="sh-ip-address-container" [ngClass]="containerClass">
+    <div class="sh-ip-address-table">
+         <ng-template ngFor let-idx [ngForOf]="blocksRef"; let-isLast="last">
+              <div class="sh-ip-address-table-cell" 
+             [class.sh-ip-address-disabled]="disabledBlocks[idx]" 
+             [ngClass]="invalidBlocks[idx]">
+                <input #input
+                    type="text"
+                    [value]="blocks[idx] || ''"
+                    (change)="onChange($event.target.value, idx)"
+                    (blur)="onBlur(idx)"
+                    (focus)="onFocus(idx)"
+                    [disabled]="disabledBlocks[idx]"
+                    (paste)="onPaste($event, idx)"
+                    (copy)="onCopy($event, idx)"
+                    (keypress)="onKeyPress($event, idx)"
+                    (keyup)="onKeyUp($event, idx)"/>
+            </div>
+            <span class="sh-ip-address-table-cell sh-ip-address-sep" *ngIf="!isLast">{{vX.SEP}}</span>
+        </ng-template>
+    </div>
+</div>
