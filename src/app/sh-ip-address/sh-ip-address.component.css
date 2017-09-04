@@ -46,6 +46,11 @@
     width: 100%;
     box-sizing: border-box;
 }
+.sh-ip-address-table div.labelip {
+    height: 3rem;
+    vertical-align:middle;
+     width: 28px
+}
 
 
 /* MATERIAL THEME */
@@ -89,4 +94,12 @@
 
 .sh-ip-address-theme-material input[disabled] {
     color: rgba(0,0,0,0.26);
+}
+
+.sh-ip-address-sep{
+    vertical-align: middle;
+}
+.sh-ip-address-sep-auto{
+    vertical-align: middle;
+    width: 2px;
 }

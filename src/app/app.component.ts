@@ -8,11 +8,19 @@ import {MdButtonToggleChange} from '@angular/material';
 })
 
 export class AppComponent {
-    title = 'app';
-    ip: string = '192.333.0.0';
-    ip1: string = '255.255.0.0';
-    ip2: string = '192.168.0.1';
+    sip: string = '192.333.0.0';
+    sip1: string = '255.255.0.0';
+    sip2: string = '192.168.0.1';
+    stype: string = 'manual';
+
+    aip: string = '202.123.1.1';
+    aip1: string = '255.255.0.0';
+    aip2: string = '255.0.0.0';
+    atype: string = 'auto';
+
+
     disabledBlocks: boolean[] = [];
+
 
 
     onDisableBlockChange($event: MdButtonToggleChange) {

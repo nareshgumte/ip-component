@@ -1,9 +1,9 @@
 <div class="sh-ip-address-container" [ngClass]="containerClass">
     <div class="sh-ip-address-table">
-         <ng-template ngFor let-idx [ngForOf]="blocksRef"; let-isLast="last">
-              <div class="sh-ip-address-table-cell" 
+        <ng-template ngFor let-idx [ngForOf]="blocksRef"; let-isLast="last" *ngIf="type=='manual'">
+                     <div class="sh-ip-address-table-cell" 
              [class.sh-ip-address-disabled]="disabledBlocks[idx]" 
-             [ngClass]="invalidBlocks[idx]">
+             [ngClass]="invalidBlocks[idx]" >
                 <input #input
                     type="text"
                     [value]="blocks[idx] || ''"
@@ -17,6 +17,10 @@
                     (keyup)="onKeyUp($event, idx)"/>
             </div>
             <span class="sh-ip-address-table-cell sh-ip-address-sep" *ngIf="!isLast">{{vX.SEP}}</span>
+        </ng-template>
+        <ng-template ngFor let-idx [ngForOf]="blocksRef"; let-isLast="last" *ngIf="type=='auto'">
+            <div class="sh-ip-address-table-cell labelip" *ngIf="type=='auto'">{{blocks[idx]}}</div>
+            <span class="sh-ip-address-table-cell sh-ip-address-sep-auto" *ngIf="!isLast">{{vX.SEP}}</span>
         </ng-template>
     </div>
 </div>

@@ -77,6 +77,21 @@ export class ShIpAddressComponent implements ControlValueAccessor {
         this.blocksRef = this.blocks.map((v, i) => i);
     }
 
+    get type(): string {
+        return this._type;
+    }
+
+    /**
+     * Setting type
+     * @param type
+     */
+    @Input() set type(type: string) {
+
+        this._type = type;
+
+    }
+
+
     get value(): string {return this._value;};
 
     @Input() set value(v: string) {
@@ -138,6 +153,7 @@ export class ShIpAddressComponent implements ControlValueAccessor {
      * @type {Array}
      */
     @Input() disabledBlocks: boolean[] = [];
+    
 
 
     @Output() change = new EventEmitter<string>();
@@ -145,6 +161,7 @@ export class ShIpAddressComponent implements ControlValueAccessor {
     @ViewChildren('input') public inputs: QueryList<ElementRef>;
 
     private _mode: IPV_MODE_TYPE = 'ipv4';
+    private _type: string = 'manual';
     private _value: string = null;
     private _onTouchedCallback: () => void = noop;
     private _onChangeCallback: (_: any) => void = noop;

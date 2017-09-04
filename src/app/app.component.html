@@ -1,30 +1,58 @@
-<div>
-    <label for="disabledBlocks">Disabled blocks</label>
-    <md-button-toggle-group multiple id="disabledBlocks">
-        <md-button-toggle (change)="onDisableBlockChange($event)" value="0">Block 1</md-button-toggle>
-        <md-button-toggle (change)="onDisableBlockChange($event)" value="1">Block 2</md-button-toggle>
-        <md-button-toggle (change)="onDisableBlockChange($event)" value="2">Block 3</md-button-toggle>
-        <md-button-toggle (change)="onDisableBlockChange($event)" value="3">Block 4</md-button-toggle>
-    </md-button-toggle-group>
-</div>
-
+<md-toolbar> Example</md-toolbar>
+<br>
 <div class="container">
-    <h3>Example With Error</h3>
-    <div class="ipcontainer">
 
-        <sh-ip-address [(ngModel)]="ip" [disabledBlocks]="[0,0,0,0]"></sh-ip-address>
-        <sh-ip-address [(ngModel)]="ip" [disabledBlocks]="[0,0,0,0]"></sh-ip-address>
-        <sh-ip-address [(ngModel)]="ip" [disabledBlocks]="[0,0,0,0]"></sh-ip-address>
-    </div>
-    
-    <h3>Example</h3>
-    <div class="ipcontainer">
 
-        <sh-ip-address [(ngModel)]="ip" [disabledBlocks]="disabledBlocks"></sh-ip-address>
-        <pre>{{ip}}</pre>
-        <sh-ip-address [(ngModel)]="ip1" [disabledBlocks]="disabledBlocks"></sh-ip-address>
-        <pre>{{ip1}}</pre>
-        <sh-ip-address [(ngModel)]="ip2" [disabledBlocks]="disabledBlocks"></sh-ip-address>
-        <pre>{{ip2}}</pre>
-    </div>
+
+    <md-card class="scip">
+        <md-card-header>
+            <md-card-title>
+                Type : 
+                <md-radio-group [(ngModel)]="stype">
+                    <md-radio-button value="auto">Auto</md-radio-button>
+                    <md-radio-button value="manual" selected>Manual</md-radio-button>
+                </md-radio-group>
+            </md-card-title>
+        </md-card-header>
+        <md-card-header>
+            <md-button-toggle-group multiple id="sdisabledBlocks" [disabled]="stype=='auto'">
+                <md-button-toggle (change)="onDisableBlockChange($event)" value="0">Block 1</md-button-toggle>
+                <md-button-toggle (change)="onDisableBlockChange($event)" value="1">Block 2</md-button-toggle>
+                <md-button-toggle (change)="onDisableBlockChange($event)" value="2">Block 3</md-button-toggle>
+                <md-button-toggle (change)="onDisableBlockChange($event)" value="3">Block 4</md-button-toggle>
+            </md-button-toggle-group>
+        </md-card-header>
+
+        <md-card-content>
+            <sh-ip-address [(ngModel)]="sip" [disabledBlocks]="disabledBlocks" [type]="stype"></sh-ip-address>
+            <sh-ip-address [(ngModel)]="sip1" [disabledBlocks]="disabledBlocks" [type]="stype"></sh-ip-address>
+            <sh-ip-address [(ngModel)]="sip2" [disabledBlocks]="disabledBlocks" [type]="stype"></sh-ip-address>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button>Save</button>
+            <button md-button>Cancel</button>
+        </md-card-actions>
+    </md-card>
+    <md-card class="scip">
+        <md-card-header>
+            <md-card-title>
+                Type : 
+                <md-radio-group [(ngModel)]="atype">
+                    <md-radio-button value="auto">Auto</md-radio-button>
+                    <md-radio-button value="manual" selected>Manual</md-radio-button>
+                </md-radio-group>
+            </md-card-title>
+        </md-card-header>
+      
+
+        <md-card-content>
+            <sh-ip-address [(ngModel)]="aip" [disabledBlocks]="disabledBlocks" [type]="atype"></sh-ip-address>
+            <sh-ip-address [(ngModel)]="aip1" [disabledBlocks]="disabledBlocks" [type]="atype"></sh-ip-address>
+            <sh-ip-address [(ngModel)]="aip2" [disabledBlocks]="disabledBlocks" [type]="atype"></sh-ip-address>
+        </md-card-content>
+        <md-card-actions>
+            <button md-button>Save</button>
+            <button md-button>Cancel</button>
+        </md-card-actions>
+    </md-card>
 </div>

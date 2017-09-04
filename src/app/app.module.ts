@@ -3,7 +3,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
-import {MaterialModule} from '@angular/material';
 
 
 import {ShIpAddressModule} from './sh-ip-address';
@@ -11,7 +10,16 @@ import {ShIpAddressModule} from './sh-ip-address';
 // App is our top level component
 import {AppComponent} from './app.component';
 
-
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+    MaterialModule,
+    MdButtonModule,
+    MdCardModule,
+    MdMenuModule,
+    MdToolbarModule,
+    MdIconModule,
+    MdRadioModule
+} from '@angular/material';
 
 /**
  * `AppModule` is the main entry point into Angular2's bootstraping process
@@ -26,7 +34,14 @@ import {AppComponent} from './app.component';
         FormsModule,
         HttpModule,
         MaterialModule,
-        ShIpAddressModule
+        ShIpAddressModule,
+        BrowserAnimationsModule,
+        MdButtonModule,
+        MdMenuModule,
+        MdCardModule,
+        MdToolbarModule,
+        MdIconModule,
+        MdRadioModule
     ],
     providers: [ // expose our Services and Providers into Angular's dependency injection
     ],
